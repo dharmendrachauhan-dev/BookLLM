@@ -8,7 +8,7 @@ export const sourceTypeSchema = z.enum([
     "MARKDOWN"
 ]);
 
-export const sourceStatusSchem = z.enum([
+export const sourceStatusSchema = z.enum([
     "PENDING",
     "PROCESSING",
     "READY",
@@ -30,7 +30,7 @@ export const sourceIdParamSchema = z.object({
 export const listSourcesQuerySchema = z.object({
     q: z.string().trim().optional(),
     type: sourceTypeSchema.optional(),
-    content: z.string().trim().min(1, "Content is required"),
+    status: sourceStatusSchema.optional()
 })
 
 

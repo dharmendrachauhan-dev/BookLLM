@@ -6,7 +6,10 @@ import {
     type WorkspaceRecord,
 } from "../repositories/workspace.repository.js";
 import { NotFoundError } from "../types/app-error.js";
-import type { CreateWorkspaceInput, UpdateWorkspaceInput } from "../validators/workspace.validator.js";
+import type {
+    CreateWorkspaceInput,
+    UpdateWorkspaceInput
+}from "../validators/workspace.validator.js";
 
 
 
@@ -32,7 +35,7 @@ export async function getWorkspaceByIdForUser(
 export function createWorkSpaceForUser(
     userId: string,
     input: CreateWorkspaceInput,
-){
+) {
     return createWorkSpaceForUser(userId, input)
 }
 

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "source" ALTER COLUMN "content" DROP NOT NULL,
+ALTER COLUMN "url" DROP NOT NULL;

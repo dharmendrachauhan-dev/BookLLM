@@ -123,8 +123,8 @@ model Source {
   workspaceId String
   type        SourceType
   title       String
-  content     String
-  url         String
+  content     String?
+  url         String?
   status      SourceStatus  @default(PENDING)
   metadata    Json?
   createdAt   DateTime  @default(now())
