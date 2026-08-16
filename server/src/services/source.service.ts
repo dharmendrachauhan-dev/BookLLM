@@ -1,11 +1,13 @@
+import type { Prisma } from "../generated/prisma/client";
 import { uploadPdfToCloudinary } from "../lib/cloudinary";
 import { scrapeWebsite } from "../lib/firecrawl";
 import { extractPdfFromBuffer } from "../lib/pdf";
 import { enqueueSourceProcessing } from "../lib/source-events";
 import { fetchYoutubeTranscript } from "../lib/youtube";
-import { createSourceRecord, findSourceByIdAndWorkspaceId, findSourcesByWorkspaceId, type SourceRecord } from "../repositories/source.repository";
+import { createSourceRecord, deleteSourceRecord, findSourceByIdAndWorkspaceId, findSourcesByWorkspaceId, updateSourceRecord, type SourceRecord } from "../repositories/source.repository";
 import { NotFoundError } from "../types/app-error";
-import type { CreateSourceInput, ImportWebSearchInput, ImportWebsiteInput, ImportYoutubeInput, ListSourcesQuery } from "../validators/source.validator";
+import type { CreateSourceInput, ImportWebSearchInput, ImportWebsiteInput, ImportYoutubeInput, ListSourcesQuery, ReprocessSourcesInput } from "../validators/source.validator";
+import { listChunksForSource, removeSourceFromIndex } from "./source-processing.service";
 import { getWorkspaceByIdForUser } from "./workspace.service";
 
 
