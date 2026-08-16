@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@mendable/firecrawl-js": "4.32.0",
+    "@pinecone-database/pinecone": "^8.2.0",
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "better-auth": "^1.6.27",
