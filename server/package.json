@@ -21,10 +21,12 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^4.0.42",
     "@mendable/firecrawl-js": "4.32.0",
     "@pinecone-database/pinecone": "^8.2.0",
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
+    "@tavily/core": "^0.7.7",
     "ai": "^7.0.66",
     "better-auth": "^1.6.27",
     "cloudinary": "^2.10.0",
