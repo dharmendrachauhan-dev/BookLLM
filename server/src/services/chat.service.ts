@@ -39,6 +39,8 @@ import { countMessagesByConversationId, createMessageRecord, findMessagesByConve
 import { buildConversationTitle, getLastUserMessageText, getTextFromUIMessage } from "../utils/chat-message.js";
 import { buildChatSystemPrompt, retrieveWorkspaceContext } from "../lib/rag/retrive.js";
 import { formatTavilyResultsForPrompt, searchWeb, type TavilySearchResponse } from "../lib/tavily.js";
+import { addMemoriesFromMessages, searchUserMemories } from "../lib/mem0.js";
+import { enqueueConversationSummarize } from "../lib/conversation-events.js";
 
 
 
