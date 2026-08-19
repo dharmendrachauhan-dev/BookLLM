@@ -75,7 +75,7 @@ export function ChatComposer({
                         onChange={(event) => setInput(event.target.value)}
                         placeholder="Ask about your sources…"
                         rows={1}
-                        className="min-h-[44px] max-h-40 resize-none"
+                        className="min-h-11 max-h-40 resize-none"
                         onKeyDown={(event) => {
                             if (event.key === "Enter" && !event.shiftKey) {
                                 event.preventDefault();
