@@ -23,8 +23,8 @@ import {
     listSourcesQuerySchema,
     reprocessSourcesSchema,
     sourceIdParamSchema,
-    workspaceIdParamSchema,
 } from "../validators/source.validator.js";
+import { workspaceIdParamSchema } from "../validators/workspace.validator.js";
 
 export async function listSources(req: Request, res: Response) {
     const { workspaceId } = workspaceIdParamSchema.parse(req.params);

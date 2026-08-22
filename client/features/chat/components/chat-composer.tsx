@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { GlobeIcon, Loader2Icon, SendIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -25,6 +25,13 @@ export function ChatComposer({
     onWebSearchChange,
 }: ChatComposerProps) {
     const [input, setInput] = useState("");
+    const [prefsReady, setPrefsReady] = useState(false);
+
+    useEffect(() => {
+        setPrefsReady(true);
+    }, []);
+
+    const searchEnabled = prefsReady && webSearchEnabled;
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
@@ -48,10 +55,10 @@ export function ChatComposer({
                         <Button
                             type="button"
                             size="sm"
-                            variant={webSearchEnabled ? "secondary" : "outline"}
+                            variant={searchEnabled ? "secondary" : "outline"}
                             className={cn(
                                 "rounded-full",
-                                webSearchEnabled && "border-primary/30",
+                                searchEnabled && "border-primary/30",
                             )}
                             onClick={() =>
                                 onWebSearchChange(!webSearchEnabled)
@@ -61,7 +68,7 @@ export function ChatComposer({
                             <GlobeIcon />
                             Web search
                         </Button>
-                        {webSearchEnabled ? (
+                        {searchEnabled ? (
                             <span className="text-xs text-muted-foreground">
                                 Tavily will search the web when needed
                             </span>

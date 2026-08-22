@@ -42,7 +42,11 @@ export function SourceSidebarList({
                 {isLoading ? (
                     <div className="flex flex-col gap-2 px-2">
                         {Array.from({ length: 3 }).map((_, index) => (
-                            <SidebarMenuSkeleton key={index} showIcon />
+                            <SidebarMenuSkeleton
+                                key={index}
+                                showIcon
+                                index={index}
+                            />
                         ))}
                     </div>
                 ) : sources && sources.length > 0 ? (

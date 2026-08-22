@@ -11,8 +11,8 @@ import {
     PlusIcon,
     SettingsIcon,
 } from "lucide-react";
-import { learnRoutes } from "@/features/learn";
-import { SignOutButton } from "@/features/auth/components/sign-out-button";
+import { learnRoutes } from "@/features/learn/lib/routes";
+import { SignOutButton } from "@/features/auth/components/sign-out";
 import {
     AddSourceDialog,
     SourceSidebarList,

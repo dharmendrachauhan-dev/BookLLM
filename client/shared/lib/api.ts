@@ -1,3 +1,6 @@
+const API_BASE_URL =
+    process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8081";
+
 export class ApiError extends Error {
     constructor(
         public status: number,
@@ -23,7 +26,9 @@ export async function apiFetch<T>(
         headers.set("Content-Type", "application/json");
     }
 
-    const response = await fetch(path, {
+    const url = path.startsWith("http") ? path : `${API_BASE_URL}${path}`;
+
+    const response = await fetch(url, {
         ...options,
         credentials: "include",
         headers,

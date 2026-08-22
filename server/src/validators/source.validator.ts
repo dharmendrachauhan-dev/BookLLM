@@ -15,11 +15,6 @@ export const sourceStatusSchema = z.enum([
     "FAILED",
 ])
 
-export const workspaceIdParamSchema = z.object({
-    workspaceId: z.string().trim().min(1),
-    sourceId: z.string().trim().min(1)
-})
-
 export const sourceIdParamSchema = z.object({
     workspaceId: z.string().trim().min(1),
     sourceId: z.string().trim().min(1),

@@ -1,4 +1,4 @@
-import { ApiError, apiFetch } from "@/shared/lib/api";
+import { apiFetch } from "@/shared/lib/api";
 import type {
     CreateSourceInput,
     ImportWebsiteInput,
@@ -88,26 +88,13 @@ export async function uploadPdfSource(
         formData.append("title", title.trim());
     }
 
-    const response = await fetch(
+    return apiFetch<Source>(
         `/api/workspaces/${workspaceId}/sources/upload`,
         {
             method: "POST",
-            credentials: "include",
             body: formData,
         },
     );
-
-    const data = await response.json().catch(() => null);
-
-    if (!response.ok) {
-        throw new ApiError(
-            response.status,
-            (data as { error?: string } | null)?.error ?? "Upload failed",
-            (data as { details?: unknown } | null)?.details,
-        );
-    }
-
-    return data as Source;
 }
 
 export function deleteSource(workspaceId: string, sourceId: string) {

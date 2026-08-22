@@ -196,7 +196,7 @@ export function DashboardHome({ userName }: DashboardHomeProps) {
                             {Array.from({ length: 6 }).map((_, index) => (
                                 <Skeleton
                                     key={index}
-                                    className="min-h-[196px] rounded-3xl"
+                                    className="min-h-49 rounded-3xl"
                                 />
                             ))}
                         </div>
